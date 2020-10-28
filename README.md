@@ -1,4 +1,4 @@
-# FarmBot Plant Health Analytics Thesis
+# FarmBot Image Classification Thesis
 # By Tom Vecchi, 2020
 
 Uses deep learning techniques to annotate and analyse images collected from the FarmBot, and logs this data for analysis. 
@@ -19,4 +19,4 @@ The code communicates with the FarmBot over MQTT and downloads the images using 
 
 ### Acknowledgements
 
-The Plant Health Analytics Thesis would not have been possible without the help of my thesis supervisor Dr Matt D'Souza and thesis tutor Scott Thomason.
+This thesis would not have been possible without the help of my thesis supervisor Dr Matt D'Souza, and thesis tutor Scott Thomason.
