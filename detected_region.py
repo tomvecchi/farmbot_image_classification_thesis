@@ -14,6 +14,16 @@ from util import PlantStatus
 
 classes = ["dead", "healthy", "non-plant"]
 
+# Classifies it as dead if its prediction for the dead class is above a threshold,
+# even if another class is higher- err on the side of deads
+def argmax_favouring_deads(pred_vector):
+
+    if pred_vector[0] > 0.01: # arbitrary num- gives good results
+        return 0 # dead
+    else:
+        return pred_vector.index(max(pred_vector))
+
+
 # Class for representing an individual region detected by the segmentation algorithm.
 class DetectedRegion(object):
 
@@ -34,7 +44,7 @@ class DetectedRegion(object):
         pred = classifier.predict(img * 255)
         
         pred_list = max(pred).tolist()
-        pred_class = pred_list.index(max(pred_list))
+        pred_class = argmax_favouring_deads(pred_list)
 
         if visual_inspection:
             logging.info("Predicted class = " + classes[pred_class] + str(pred_list))
