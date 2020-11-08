@@ -5,9 +5,9 @@ Uses deep learning techniques to annotate and analyse images collected from the 
 
 ## Setup instructions
 
-The FarmBot user credentials and the email account which will be used for sending results must be entered in the creds.py file. Additionally the trained models, classifier_model.h5 and segmenter_model.h5, must be present in the ./models folder. \
+The FarmBot user credentials and the email account which will be used for sending results must be entered in the creds.py file.\
+Additionally the trained models, classifier_model.h5 and segmenter_model.h5, must be present in the ./models folder. The trained models are not included since Github doesn't allow files larger than 25 MB.\
 The plant_locations.txt file contains a list of plants to image in the format type,x,y. \
-The models should be saved in the models/ directory. The trained models are not included since Github doesn't allow files larger than 25 MB.
 
 ## Usage
 
