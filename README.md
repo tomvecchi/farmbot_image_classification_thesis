@@ -1,9 +1,10 @@
+![Poster (from thesis demo session)](./poster.PNG)
+
 # FarmBot Image Classification Thesis
 # By Tom Vecchi, 2020
 
 Uses deep learning techniques to annotate and analyse images collected from the FarmBot, enabling time-series analysis to be performed on the data and underperforming plants to be identified.
 
-![Poster (from thesis demo session)](./poster.PNG)
 
 ## Setup instructions
 
