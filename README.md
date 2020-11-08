@@ -3,6 +3,8 @@
 
 Uses deep learning techniques to annotate and analyse images collected from the FarmBot, enabling time-series analysis to be performed on the data and underperforming plants to be identified.
 
+![Poster (from thesis demo session)](./poster.PNG)
+
 ## Setup instructions
 
 The FarmBot user credentials and the email account which will be used for sending results must be entered in the creds.py file.\
@@ -12,6 +14,8 @@ The plant_locations.txt file contains a list of plants to image in the format ty
 ## Usage
 
 Run daily_routine.py. It will image all the plants in plant_locations.txt and perform the analysis on them, then log this information in .log files in the logs folder. Use visualiser.py [filename] to plot the data in a given log file. 
+
+![Sample output](./tomato200_200.log.png)
 
 ### How it works
 
