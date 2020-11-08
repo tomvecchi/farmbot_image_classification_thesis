@@ -10,18 +10,11 @@
 import argparse
 import logging
 import matplotlib.pyplot as plt
-
-# converts a timestamp to a monotonically increasing int so that it can be used on the plot
-# as the x coordinate
-def parse_timestamp_to_number(stamp):
-    digits = ["0","1","2","3","4","5","6","7","8","9"]
-    output = ""
-    for c in stamp:
-        if c in digits:
-            output += c
-    return float(float(output) / 1000000)
+import matplotlib.dates as dates
+from datetime import datetime
 
 # Parses a .log file containing the logged health status and size information
+# Returns 3 lists containing timestamps, size info, and health state info, in order
 def parse_log_file(filename):
     times = []
     areas = []
@@ -48,7 +41,8 @@ def parse_log_file(filename):
                 logging.error("Invalid entry detected on line " + str(count + 1))
                 continue
             else:
-                times.append(parse_timestamp_to_number(elements[0]))
+                date = datetime.strptime(elements[0], "%Y/%m/%d_%H:%M:%S")
+                times.append(date)
                 areas.append(float(elements[1]))
                 statuses.append((elements[2]))
                 # Add more variables as needed
@@ -56,7 +50,7 @@ def parse_log_file(filename):
             count += 1
 
         logging.debug(str(statuses))
-        # Get healthy, dead areas and dates
+        # Get healthy, dead areas and dates as lists, ordered by time
         return times, areas, statuses
 
 # Generates plot of plant size over time, coloured based on health status
@@ -77,6 +71,8 @@ def plot_size_and_health(times, sizes, statuses):
             healthy_times.append(times[i])
             healthy_areas.append(sizes[i])
 
+    plt.gca().xaxis.set_major_formatter(dates.DateFormatter('%d/%m/%Y'))
+    plt.gca().xaxis.set_major_locator(dates.DayLocator(interval=3))
     plt.plot(healthy_times, healthy_areas, 'go', dead_times, dead_areas, 'ro')
     plt.ylabel("Healthy area (pixels)")
 
@@ -91,7 +87,7 @@ if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO)
     parser = argparse.ArgumentParser(description='View plot of plant analytics log file')
     parser.add_argument('filename', metavar='filename', type=str, nargs='+',
-                   help='Log file to test')
+                   help='.log file to plot')
 
     args = parser.parse_args()
     times, sizes, statuses = parse_log_file(args.filename[0])
