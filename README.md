@@ -20,7 +20,7 @@ Run daily_routine.py. It will image all the plants in plant_locations.txt and pe
 
 ![Sample output](./tomato200_200.log.png) \
  \
-For ongoing operations, uncomment the exit(0) statement at line 128 in daily_routine.py. This will allow the program to continually capture more data at 24-hour intervals.
+For ongoing operations, comment out the exit(0) statement at line 128 in daily_routine.py. This will allow the program to continually capture more data at 24-hour intervals.
 
 ### How it works
 
