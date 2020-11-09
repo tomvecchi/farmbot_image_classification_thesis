@@ -4,7 +4,7 @@
     This file contains code for training the classifier model. Data and the finished model are not included.
 
     Citations: Rizwan, M (2018). AlexNet implementation using Keras. Retrieved 7/10/20 from https://engmrk.com/alexnet-implementation-using-keras/
-    Additionally, some sections are partially based off my own previous work in ELEC4630 (Image Processing and COmputer Vision).
+    See the thesis report for more information.
 """
 
 import keras
