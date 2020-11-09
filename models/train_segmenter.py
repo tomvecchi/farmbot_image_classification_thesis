@@ -4,7 +4,7 @@
     This file contains the model and training code for the segmentation algorithm. The finished model and training data aren't included.
 
     Citations: zhixuhao. “unet”. github.com. https://github.com/zhixuhao/unet/blob/master/model.py (retrieved 14/7/20).
-            Additionally, some sections are partially based off my own previous work in ELEC4630 (Image Processing and Computer Vision).
+    See thesis report for more information.
 
 """
 
